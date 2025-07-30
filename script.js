@@ -29,6 +29,19 @@ function calculate() {
   const bill = parseFloat(billInput.value);
   const people = parseInt(peopleInput.value);
 
+  // Input validation styles
+  if (isNaN(bill) || bill <= 0) {
+    billInput.style.border = '1px solid red';
+  } else {
+    billInput.style.border = '';
+  }
+
+  if (isNaN(people) || people <= 0) {
+    peopleInput.style.border = '1px solid red';
+  } else {
+    peopleInput.style.border = '';
+  }
+
   if (isNaN(bill) || bill <= 0 || isNaN(people) || people <= 0) {
     tipAmountDisplay.textContent = '0.00';
     totalPerPersonDisplay.textContent = '0.00';
@@ -45,6 +58,7 @@ function calculate() {
   totalPerPersonDisplay.textContent = perPerson.toFixed(2);
   totalDisplay.textContent = total.toFixed(2);
 }
+
 
 // Recalculate on all input changes
 [billInput, peopleInput].forEach(input =>
