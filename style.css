@@ -66,3 +66,8 @@ input:focus, button:hover {
 #reset:hover {
   background-color: #ff1c1c;
 }
+
+.tip-buttons button.active {
+  background-color: #007bff;
+  color: white;
+}
