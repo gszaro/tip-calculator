@@ -12,11 +12,19 @@ let selectedTip = 0;
 // Attach tip button handlers
 tipButtons.forEach(button => {
   button.addEventListener('click', () => {
+    tipButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
     selectedTip = parseFloat(button.dataset.tip);
-    customTipInput.value = ''; // Clear custom if a preset is clicked
+    customTipInput.value = '';
     calculate();
   });
 });
+
+// Also clear tip button highlight when using custom tip
+customTipInput.addEventListener('input', () => {
+  tipButtons.forEach(btn => btn.classList.remove('active'));
+});
+
 
 // Custom tip input
 customTipInput.addEventListener('input', () => {
